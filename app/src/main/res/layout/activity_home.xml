@@ -4,20 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
     tools:context=".HomeActivity">
 
-    <Button
-        android:id="@+id/playbutton"
-        android:layout_width="360dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Play game"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3C5AFF"
+
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="241dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:text="Tic tac toe"
+            android:textColor="#ffff"
+            android:textColorLink="@android:color/darker_gray"
+            android:textSize="55sp" />
+
+        <Button
+            android:id="@+id/playbutton"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/button_background"
+            android:text="Play"
+            android:textColor="#000000"
+            android:textSize="40sp" />
+        <Button
+            android:id="@+id/instructionbutton"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_background"
+            android:text="Instructions"
+            android:textColor="#000000"
+            android:textSize="40sp" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
