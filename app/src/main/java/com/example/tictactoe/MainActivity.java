@@ -1,15 +1,28 @@
 package com.example.tictactoe;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
+
+
+   Bitmap bitmap1;
+   Bitmap bitmap2;
+
+
 
     //player0
     int activePlayer = 1;
@@ -30,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
         counter.setTranslationY(-1000f);
         if(gamestate[intcounter1]==2) {
             if (activePlayer == 0) {
-                counter.setImageResource(R.drawable.ex);
+                counter.setImageBitmap(bitmap1);
                 gamestate[intcounter1]=0;
                 activePlayer = 1;
 
             } else {
-                counter.setImageResource(R.drawable.oo);
+                counter.setImageBitmap(bitmap2);
                 gamestate[intcounter1]=1;
                 activePlayer = 0;
 
@@ -105,6 +118,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //receiving playerimages through intents
+    Uri uri1 = getIntent().getParcelableExtra("imageUri1");
+    Uri uri2 = getIntent().getParcelableExtra("imageUri2");
+
+
+    {
+        try {
+            bitmap1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),uri1);
+            bitmap2 = MediaStore.Images.Media.getBitmap(this.getContentResolver(),uri2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     }
